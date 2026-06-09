@@ -63,7 +63,9 @@ module.exports = {
         roleToGive = rank.role;
        
     }
- } await member.roles.add(roleToGive);
+ } console.log("role start");
+ await member.roles.add(roleToGive);
+  console.log("role done");
 }
      
 };
