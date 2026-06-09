@@ -5,7 +5,7 @@ module.exports = {
     
 
     async execute(message) {
-        
+        const userid = message.author.id;
         if (message.author.bot) return;
 
        const rankRoles = {
@@ -24,7 +24,7 @@ module.exports = {
         fs.readFileSync('./events/data/user.json', 'utf8')
        );
 
-       const userid = message.author.id;
+      
 
        if(!data[userid]) return;
 
@@ -61,9 +61,11 @@ module.exports = {
  for(const rank of ranks){
     if(xp>= rank.xp){
         roleToGive = rank.role;
+        
        
     }
- } console.log("ROLE START");
+ } 
+ console.log("ROLE START");
 
 console.log("USER ID =", userid);
 
@@ -75,9 +77,28 @@ if(!data[userid]) {
 console.log("XP =", xp);
 console.log("ROLE TO GIVE =", roleToGive);
 try {
+    try {
+    console.log(member.user.username, "=>", roleToGive);
+
+    try {
+    console.log("TRYING:", member.user.username, roleToGive);
+
     await member.roles.add(roleToGive);
 
-    await member.roles.fetch();
+    console.log("SUCCESS:", member.user.username);
+}
+catch(err) {
+    console.log("FAILED:", member.user.username);
+    console.log(err.message);
+}
+
+    console.log("ROLE GIVEN TO", member.user.username);
+}
+catch(err) {
+    console.log("ROLE ERROR:", err.message);
+}
+
+   
 
     console.log("ROLE ADDED");
     console.log("USER ROLES:");
