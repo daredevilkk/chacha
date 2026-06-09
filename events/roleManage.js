@@ -76,12 +76,14 @@ console.log("XP =", xp);
 console.log("ROLE TO GIVE =", roleToGive);
 try {
     await member.roles.add(roleToGive);
+
     console.log("ROLE ADDED");
+    console.log("USER ROLES:");
+    console.log(member.roles.cache.map(r => r.name));
 }
 catch(err) {
     console.log("ROLE ERROR:", err.message);
 }
- 
 }
      
 };
