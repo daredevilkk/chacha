@@ -39,9 +39,17 @@ client.on(interactionEvent.name, (...args) => {
 client.once('ready', () => {
     console.log(`Chacha is online!`);
 
-    setInterval(() => {
-        console.log("Checking roles...");
-    }, 60000);
+    setInterval(async () => {
+
+    const guild = client.guilds.cache.first();
+
+    await guild.members.fetch();
+
+    guild.members.cache.forEach(member => {
+        console.log(member.user.username);
+    });
+
+}, 60000);
 });
 
 client.on('messageCreate', message => {
