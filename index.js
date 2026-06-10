@@ -36,6 +36,7 @@ const antiSpam = require('./events/antiSpam');
 
 client.on('interactionCreate', async interaction => {
     console.log("LISTENER A");
+    console.log("INTERACTION RECEIVED");
     if (!interaction.isChatInputCommand()) return;
     
 
