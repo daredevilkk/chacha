@@ -398,4 +398,5 @@ catch(err) {
 
 
 
-client.login(process.env.TOKEN);
+client.login(process.env.TOKEN);/ /   r e d e p l o y  
+ 
